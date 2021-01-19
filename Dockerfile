@@ -2,7 +2,7 @@ FROM node:latest
 
 RUN mkdir -p /FoodCore-server
 
-COPY . /FoodCore-server
+COPY ./server /FoodCore-server
 
 WORKDIR /FoodCore-server
 
