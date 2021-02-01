@@ -26,5 +26,8 @@ const usersRouter = require('./routes/usersRoute');
 app.use(cors({ origin: true, credentials: true }));
 
 // Api routes
-app.use('/api/user', usersRouter);
-app.use('/api/', allRecipeRouter);
+// app.use('/api/user', usersRouter);
+// app.use('/api/', allRecipeRouter);
+
+app.use('/user', usersRouter);
+app.use('/', allRecipeRouter);
