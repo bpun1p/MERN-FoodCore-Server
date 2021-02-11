@@ -10,10 +10,8 @@ function postToAllRecipes(req, res) {
 
 function getAllRecipes(req, res) {
   Recipe.find().sort({ createdAt: -1 })
-    .then((results) => {
-      res.send(results);
-    })
-    .catch((err) => res.sent(err));
+    .then((results) => res.send(results))
+    .catch((err) => res.send(err));
 }
 
 module.exports = {

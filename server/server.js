@@ -15,7 +15,7 @@ const dbURI = 'mongodb+srv://FoodCore:Guy123su@cluster0.amii2.mongodb.net/FoodCo
 
 // connect to mongodb
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => app.listen(PORT, () => { console.log(`Listening at: http://localhost:${PORT}`); }))
+  .then(() => app.listen(PORT, () => console.log(`Listening at: http://localhost:${PORT}`)))
   .catch((err) => console.log(err));
 
 // Cross Origin Resource Sharing

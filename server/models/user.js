@@ -32,7 +32,6 @@ userSchema.pre('save', function (next) {
 userSchema.methods.comparePassword = function (password, cb) {
   bcrypt.compare(password, this.password, (err, isMatch) => {
     if (err) return cb(err);
-
     if (!isMatch) return cb(null, isMatch);
     return cb(null, this); // 'this' attaches to the user object to the request object
   });
