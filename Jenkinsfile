@@ -1,21 +1,19 @@
-def gv
 pipeline {
     agent any
     environment {
-        CI = 'true'
+        CI = "true"
         registry = "bpun1p/server"
         registryCredential = "dockerhub_id"
     }
     tools {
         nodejs "node"
-        'org.jenkinsci.plugins.docker.commons.tools.DockerTool' 'docker'
+        "org.jenkinsci.plugins.docker.commons.tools.DockerTool" "docker"
     }
     stages {
         stage("init") {
             steps {
                 script {
-                   gv = load "script.groovy"
-                   CODE_CHANGES = gv.getGitChanges()
+                   CODE_CHANGES = currentBuild.changeSets.size() > 0
                 }
             }
         }
@@ -34,7 +32,7 @@ pipeline {
             }
             steps {
                 script {
-                   dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                   dockerImage = docker.build(registry + ":$BUILD_NUMBER")
                 }
             }
         }
@@ -48,7 +46,7 @@ pipeline {
             }
             steps {
                 script {
-                    docker.withRegistry('', registryCredential) {
+                    docker.withRegistry("https://registry.hub.docker.com", registryCredential) {
                         dockerImage.push();
                     }
                 }
