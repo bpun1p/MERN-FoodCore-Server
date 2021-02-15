@@ -1,8 +1,5 @@
 FROM node:latest
 
-ENV MONGO_DB_USERNAME=bpun1p \
-    MONGO_DB_PWD=Guy123su
-
 RUN mkdir -p /FoodCore-server
 
 COPY ./server /FoodCore-server
