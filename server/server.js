@@ -9,7 +9,7 @@ const bodyParser = require('body-parser');
 
 // Middleware
 app.use(cookieParser()); // parse the cookie stored in the web browser
-// app.use(bodyParser({ limit: '50mb' }));
+app.use(bodyParser({ limit: '50mb' }));
 
 const dbURI = 'mongodb+srv://FoodCore:Guy123su@foodcore.2psiecw.mongodb.net/?retryWrites=true&w=majority';
 
