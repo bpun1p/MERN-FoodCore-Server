@@ -2,16 +2,16 @@
 const express = require('express');
 
 const app = express();
-const PORT = 5000;
+const PORT = 3000;
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 
 // Middleware
 app.use(cookieParser()); // parse the cookie stored in the web browser
-app.use(bodyParser({ limit: '50mb' }));
+// app.use(bodyParser({ limit: '50mb' }));
 
-const dbURI = 'mongodb+srv://FoodCore:Guy123su@cluster0.amii2.mongodb.net/FoodCore?retryWrites=true&w=majority';
+const dbURI = 'mongodb+srv://FoodCore:Guy123su@foodcore.2psiecw.mongodb.net/?retryWrites=true&w=majority';
 
 // connect to mongodb
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
